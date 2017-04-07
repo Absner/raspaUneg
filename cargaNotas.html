@@ -1,0 +1,83 @@
+<div ng-controller="subirFile" ng-init="showPeriodo();">
+ <md-toolbar class="md-table-toolbar md-default">
+  <div class="md-toolbar-tools">
+    <span >Cargar notas</span>
+  </div>
+</md-toolbar>
+
+<div layout="row" layout-align="center">
+	
+	<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+			<label>Semestre</label>   
+			<md-select ng-change="cargarMaterias();" ng-model="semestre">
+			<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+			</md-select>
+        </md-input-container>
+	
+	<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+		<label>Materia</label>
+		<md-select ng-model="materia" ng-change="cargarSeccions();">
+			<md-option ng-repeat="Materia in Materias"  value="{{Materia.codigoM}}">{{Materia.nombreM}}</md-option>
+		</md-select>
+	</md-input-container>
+	
+	<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+		<label>Sección</label>
+		<md-select ng-model="seccion" ng-change="cantEval();">
+			<md-option ng-repeat="seccion in Secciones" value="{{seccion.codigoS}}">{{seccion.codigoS}}</md-option>
+		</md-select>
+	</md-input-container>
+	
+	<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+		<label>Fecha Evaluación</label>
+		<md-select ng-model="fechaE" ng-change="showAlumno();">
+			<md-option ng-repeat="item in fechasEval" value="{{item.codigo}}">{{item.fecha}}</md-option>
+		</md-select>
+	</md-input-container>
+
+<!-- BOTON PARA ACTUALIZAR LOS DATOS -->
+	<md-button  title="Resumen de notas" class="md-icon-button" aria-label="More"  ng-click="updateNotaFinal();viewNotas();" >
+		<md-icon md-svg-src="img/view.svg"></md-icon>
+	</md-button>
+	<md-button  title="Difundir notas" class="md-icon-button" aria-label="More"  ng-click="sendEmail();" >
+		<md-icon md-svg-src="img/ic_mail_outline_black_24px.svg"></md-icon>
+	</md-button>
+	
+	
+	
+</div>
+
+
+<!-- exact table from live demo -->
+
+
+<md-table-container >
+  <table md-table  ng-model="lista" md-progress="promise">
+    <thead md-head >
+      <tr md-row>
+        <th md-column ><span>Cédula</span></th>
+        <th md-column ><span>Apellidos y Nombres</span></th>
+        <th md-column>Calificación</th>
+      </tr>
+    </thead>
+    <tbody md-body>
+      <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="alumno in listaAlumnos">
+        <td md-cell  ng-bind="alumno.cedula"></td>
+        <td md-cell>{{alumno.apellido+" "+alumno.sApellido+", "+alumno.nombre+" "+alumno.sNombre}}</td>
+        <td md-cell md-numeric>
+        <md-input-container class="marginPadding">
+        	<label></label>
+        	<input type="number" ng-model="alumno.nota" ng-hide="false" ng-change="addNota(alumno.cedula,alumno.nota)"  flex max="25" min="0">
+        </md-input-container>
+        
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</md-table-container>
+  
+</div>
+
+  
+   
+	

@@ -1,0 +1,57 @@
+<h2>Estad&iacute;stica</h2>
+
+<div ng-controller="subirFile" ng-init="showPeriodo();">
+	<div ng-controller="GraphicController" layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45">
+		<div layout="row" layout-align="center center">
+			<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+				<label>Semestre</label>   
+				<md-select ng-change="cargarMaterias();" ng-model="semestre">
+					<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>	
+				</md-select>
+	                </md-input-container>
+			
+			<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+				<label>Materia</label>
+				<md-select ng-model="materia" ng-change="cargarSeccions();">
+					<md-option ng-repeat="Materia in Materias"  value="{{Materia.codigoM}}">{{Materia.nombreM}}</md-option>
+				</md-select>
+			</md-input-container>
+			
+			<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+				<label>Secci&oacute;n</label>
+				<md-select ng-model="seccion" ng-change="addChart();r=1;">
+					<md-option ng-repeat="seccion in Secciones" value="{{seccion.codigoS}}">{{seccion.codigoS}}</md-option>
+				</md-select>
+			</md-input-container>
+			<md-button title="Resumen de notas" class="md-icon-button" aria-label="More"  ng-click="print();" >
+				<md-icon md-svg-src="img/view.svg"></md-icon>
+			</md-button>
+	        </div>
+	        <div id="print">
+		        <div layout="row" layout-align="center">
+			        <div id="chart"></div>
+		        </div>
+		        <div layout="row" layout-align="center">
+		        	<table md-table ng-show="r==1"  ng-model="lista" md-progress="promise">
+				        <tbody md-body>
+						      <tr md-row md-select="dessert" md-select-id="name" md-auto-select>
+						        <td md-cell ng-model="alumnos" md-numeric>N&uacute;mero de alumnos: {{alumnos}}</td>
+						        <td md-cell ng-model="alta" md-numeric>Nota m&aacute;s alta: {{alta}}</td>
+						      </tr>
+						      <tr md-row md-select="dessert" md-select-id="name" md-auto-select>
+						        <td md-cell ng-model="aprobados">N&uacute;mero de aprobados: {{aprobados}}</td>
+						        <td md-cell ng-model="baja">Nota m&aacute;s baja: {{baja}}</td>
+						      </tr>
+						      <tr md-row md-select="dessert" md-select-id="name" md-auto-select>
+						        <td md-cell ng-model="aplazados">N&uacute;mero de aplazados: {{aplazados}}</td>
+						        <td md-cell ng-model="promedio_nota">Nota promedio: {{promedio_nota}}</td>
+						      </tr>
+						      <tr md-row md-select="dessert" md-select-id="name" md-auto-select>
+						        <td md-cell ng-model="promedio_aprobado">Porcentaje aprobado: {{promedio_aprobado}}</td>
+						      </tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</div>
+</div>

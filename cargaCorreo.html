@@ -1,0 +1,17 @@
+<h2>Cargar correo alumnos</h2>
+
+
+<div ng-controller="subirFile" layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45">
+	
+	<md-input-container>
+	<label>agregue los correos aquí</label>
+		<textarea flex="100" autofocus ng-model="correos" ></textarea>
+	</md-input-container>
+	
+	<md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type class="md-raised md-primary" ng-click="updateCorreo();">Cargar</md-button>
+
+    </md-input-container>
+	
+</div>

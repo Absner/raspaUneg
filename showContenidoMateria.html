@@ -1,0 +1,61 @@
+<div ng-controller=" link as vm">
+	<h2>
+		<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/back.svg" title="Regresar" ng-click="vm.ruta('#/Configuracion')">
+		
+	</md-icon>
+	Contenido materia.
+	</h2>
+	
+	<div ng-controller="materia" flex="90" layout="column" layout-align="center" class="marginAuto">
+	
+		<div layout="row" layout-align="left center" ng-init="showMateria();" >
+			<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+				<label>Materia</label>
+				<md-select ng-model="materia" ng-change="contenidoMateria();">
+					<md-option ng-repeat="asignatura in asignaturas"  value="{{asignatura.codigo}}">{{asignatura.nombre}}</md-option>
+				</md-select>
+			</md-input-container>
+		</div>
+	
+		<md-table-container ng-init="">
+		  <table md-table  ng-model="lista" md-progress="promise">
+			<thead md-head >
+			  <tr md-row>
+				<th md-column ><span>Código </span></th>
+				<th md-column ><span>Titulo</span></th>
+				<th md-column>Descripcion</th>
+				<th md-column>Acción</th>
+			  </tr>
+			</thead>
+			<tbody md-body>
+			  <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="item in contenido" >
+				<td md-cell>
+					
+				{{item.cod}}
+				</td>
+				<td md-cell>
+					<span ng-dblclick="showEdition($event,item.cod)" ng-hide="edit[item.cod]">{{item.titulo}}</span>
+					<md-input-container ng-show="edit[item.cod]">
+						<label>Titulo</label>
+						<input type="text" ng-model="item.titulo">
+					</md-input-container>				
+				</td>
+				
+				<td md-cell>
+					<span ng-dblclick="showEdition($event,item.cod)" ng-hide="edit[item.cod]">{{item.descripcion}}</span>
+					<md-input-container ng-show="edit[item.cod]">
+						<textarea ng-model="item.descripcion"></textarea>
+					</md-input-container>
+				</td>
+				
+				<td md-cell>
+					<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/delete.svg" title="Eliminar" ng-click="deleteContenido(item.cod)"></md-icon>
+					<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/save.svg" title="Editar" ng-click="updateContenido(item.cod,item.titulo,item.descripcion);"></md-icon>
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</md-table-container>
+	</div>
+	
+</div>

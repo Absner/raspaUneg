@@ -1,0 +1,71 @@
+<div ng-controller=" link as vm">
+	<h2>
+	<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/back.svg" title="Regresar" ng-click="vm.ruta('#/Configuracion')"></md-icon>
+	Listado Alumnos
+	</h2>
+
+
+
+<div ng-controller="subirFile" ng-init="showPeriodo();">
+
+
+	<div layout="row" layout-align="center">
+	
+		<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+				<label>Semestre</label>   
+				<md-select ng-change="cargarMaterias();" ng-model="semestre">
+				<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+				</md-select>
+			</md-input-container>
+
+		<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+			<label>Materia</label>
+			<md-select ng-model="materia" ng-change="cargarSeccions();">
+				<md-option ng-repeat="Materia in Materias"  value="{{Materia.codigoM}}">{{Materia.nombreM}}</md-option>
+			</md-select>
+		</md-input-container>
+
+		<md-input-container flex-gt-sm="15" flex-gt-xs="15">
+			<label>Sección</label>
+			<md-select ng-model="seccion" ng-change="alumnosMateria();">
+				<md-option ng-repeat="seccion in Secciones" value="{{seccion.codigoS}}">{{seccion.codigoS}}</md-option>
+			</md-select>
+		</md-input-container>
+	
+	</div>
+	
+	<md-table-container >
+	  <table md-table  ng-model="lista" md-progress="promise">
+		<thead md-head >
+		  <tr md-row>
+			<th md-column ><span>Cédula</span></th>
+			<th md-column ><span>Apellidos</span></th>
+			<th md-column ><span>S. Apellidos</span></th>
+			<th md-column ><span>Nombre</span></th>
+			<th md-column ><span>S. Nombre</span></th>
+			<th md-column ><span>Correo</span></th>
+		  </tr>
+		</thead>
+		
+	  	<tbody md-body>
+		  <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="item in listAlumnoMateria">
+			<td md-cell>{{item.cedula}}</td>
+			<td md-cell>{{item.apellido}}</td>
+			<td md-cell>{{item.sApellido}}</td>
+			<td md-cell>{{item.nombre}}</td>
+			<td md-cell>{{item.sNombre}}</td>
+			<td md-cell>{{item.correo}}</td>
+			<td md-cell>
+				<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/delete.svg" title="Eliminar" ng-click="deleteAlumno(item.cedula)"></md-icon>
+				
+				<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/edit.svg" title="Editar" ng-click="vm.ruta('#/Configuracion/listadoAlumno/updateAlumno/'+item.cedula)"></md-icon>
+			</td>
+		  </tr>
+		</tbody>
+		
+	  </table>
+	</md-table-container>
+
+	
+</div>
+</div>

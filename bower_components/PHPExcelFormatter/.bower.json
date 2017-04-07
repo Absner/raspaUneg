@@ -1,0 +1,21 @@
+{
+  "name": "PHPExcelFormatter",
+  "version": "1.0.1",
+  "main": "PHPExcelFormatter.php",
+  "ignore": [],
+  "dependencies": {
+    "PHPExcel": "https://github.com/PHPOffice/PHPExcel.git"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/renekorss/PHPExcelFormatter",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "b25e128264e87e569bcdd04b7981eba31c43769c"
+  },
+  "_source": "https://github.com/renekorss/PHPExcelFormatter.git",
+  "_target": "^1.0.1",
+  "_originalSource": "phpexcelformatter",
+  "_direct": true
+}

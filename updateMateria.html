@@ -1,0 +1,30 @@
+<div ng-controller=" link as vm">
+<h2>
+	<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/back.svg" title="Regresar" ng-click="vm.ruta('#/Configuracion/deleteMateria')"></md-icon>
+Editar Materia
+</h2>
+</div>
+
+<div layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45" ng-controller="materia" ng-init="datosUpdate();" >
+
+	<md-input-container>
+    	<input type="text" placeholder="codigo de la materia" ng-model="serial">
+    </md-input-container>
+    
+    <md-input-container>
+    	<input type="text" placeholder="nombre" ng-model="name">
+    </md-input-container>
+    
+    <md-input-container>
+    	<input type="text" placeholder="unidades de crédito" ng-model="uc">
+    </md-input-container>
+    
+    <md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type class="md-raised md-primary" ng-click="addMateria();">Cargar</md-button>
+        <md-button class="md-raised">Limpiar</md-button>
+    </md-input-container>
+	
+</div>
+
+

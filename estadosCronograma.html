@@ -1,0 +1,69 @@
+<h2>Estado</h2>
+
+
+<div ng-controller="Agenda" ng-init="showExamen();showFeriados();showInicioFin();" >
+	<md-content layout-xs="column" layout-sm="column" layout="row" layout-align="center">
+		
+		<!-- visualizaión de todos los días festivos -->
+		<md-content flex-gt-sm="30" flex-gt-xs="40">
+			<md-toolbar class="md-hue-1">
+				<div class="md-toolbar-tools">
+				  <h2 class="md-flex">Días Festivos.</h2>
+				</div>
+  			</md-toolbar>
+  			
+  			<md-list class="md-dense" flex>
+  				<md-list-item class="md-3-line" ng-repeat="item in listaFeriado" ng-click="null">
+  					<div class="md-list-item-text" layout="column">
+  						<h3>{{item.fecha}}</h3>
+						<p>{{item.descripcion}}</p>
+  					</div>
+  					<md-divider></md-divider>
+  				</md-list-item>
+  			</md-list>
+		</md-content>
+		
+		<!-- inicio y fin de semestre mostrar las fechas -->
+		<md-content flex-gt-sm="30" flex-gt-xs="40">
+			<md-toolbar class="md-primary md-hue-2">
+				<div class="md-toolbar-tools">
+				  <h2 class="md-flex">Inicio / fin semestre. </h2>
+				</div>
+  			</md-toolbar>
+  			
+  			<md-list class="md-dense" flex>
+  				<md-list-item class="md-3-line" ng-repeat="item in listaInicioFin" ng-click="null">
+  					<div class="md-list-item-text" layout="column">
+  						<h3>{{item.fecha}}</h3>
+						<p>{{item.descripcion}}</p>
+  					</div>
+  					<md-divider></md-divider>
+  				</md-list-item>
+  			</md-list>
+		</md-content>
+		
+		<!-- visualización de todas las evaluaciones -->
+		<md-content flex-gt-sm="30" flex-gt-xs="40">
+			<md-toolbar class="md-hue-1">
+				<div class="md-toolbar-tools">
+				  <h2 class="md-flex">Evaluaciones.</h2>
+				</div>
+  			</md-toolbar>
+			
+				<md-list class="md-dense" flex>
+					<md-list-item ng-repeat="item in listaExamen" class="md-3-line" ng-click="null">
+					  <div class="md-list-item-text" layout="column">
+						<h3>{{item.fecha}}</h3>
+						<h3>{{item.nombre}} {{item.seccion}}</h3>
+						<h4>{{item.porcentaje}}</h4>
+						<p>{{item.semestre}}</p>
+					  </div>
+					  <md-divider></md-divider>
+					</md-list-item>
+				</md-list>
+			
+		</md-content>
+		
+	</md-content>
+	
+</div>

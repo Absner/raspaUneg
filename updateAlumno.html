@@ -1,0 +1,69 @@
+<div ng-controller=" link as vm">
+<h2>
+	<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/back.svg" title="Regresar" ng-click="vm.ruta('#/Configuracion/listadoAlumno')"></md-icon>
+Atras
+</h2>
+</div>
+
+<div ng-controller="subirFile" ng-init="dataAlumno();" layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45" >              
+
+        
+        <div ng-repeat="item in data">
+        	
+        	
+        
+        
+        <div layout="row">
+			<md-input-container flex-gt-sm="40" flex-gt-xs="45">
+				<label>Cedula</label>
+				<input type="text" ng-model="item.cedula" value="item.cedula">
+			</md-input-container>
+		</div>
+        
+        <div layout="row">
+
+			<md-input-container flex-gt-sm="50" flex-gt-xs="45">
+				<label>Apellido</label>
+				<input type="text" ng-model="item.apellido">   
+
+			</md-input-container>
+
+			<md-input-container flex-gt-sm="50" flex-gt-xs="45">
+				<label>Segundo Apellido</label>
+				<input type="text" ng-model="item.sApellido">  
+
+			</md-input-container>
+		</div>
+
+        <div layout="row">
+
+			<md-input-container flex-gt-sm="50" flex-gt-xs="45">
+				<label>Nombre</label>
+				<input type="text" ng-model="item.nombre">   
+
+			</md-input-container>
+
+			<md-input-container flex-gt-sm="50" flex-gt-xs="45">
+				<label>Segundo Nombre</label>
+				<input type="text" ng-model="item.sNombre">  
+
+			</md-input-container>
+		</div>
+        
+        <div layout="row">
+			<md-input-container flex-gt-sm="40" flex-gt-xs="45">
+				<label>Correo</label>
+				<input type="email" ng-model="item.correo" required>
+			</md-input-container>
+		</div>
+        
+       
+
+        <md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type class="md-raised md-primary" ng-click="updateAlumno(item.cedula,item.nombre,item.sNombre,item.apellido,item.sApellido, item.correo);">Guardar</md-button>
+        </md-input-container>
+        </div>
+
+
+</div>

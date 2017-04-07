@@ -1,0 +1,78 @@
+<div ng-controller=" link as vm">
+	<h2>
+		<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/back.svg" title="Regresar" ng-click="vm.ruta('#/Configuracion')">
+		
+	</md-icon>
+	Materias.
+	</h2>
+	
+<div ng-controller="materia" flex="90" layout="column" layout-align="center" class="marginAuto">
+
+	<md-container flex="50" ng-init="showPeriodos();">
+		<md-input-container>
+			<label>Semestre</label>   
+			<md-select ng-change="materiaDocente();" ng-model="semestre">
+			<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+			</md-select>
+    	</md-input-container>
+		
+	</md-container>
+	
+	<md-table-container>
+	  <table md-table  ng-model="lista" md-progress="promise">
+		<thead md-head >
+		  <tr md-row>
+			<th md-column ><span>Código</span></th>
+			<th md-column ><span>Materia</span></th>
+			<th md-column ><span>Uc</span></th>
+			<th md-column>Sección</th>
+			<th md-column>Acción</th>
+		  </tr>
+		</thead>
+		<tbody md-body>
+		  <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="item in listaMateriaD" >
+			  <td md-cell>
+			  	<span ng-dblclick="showEdition($event,item.codigo)" ng-hide="edit[item.codigo]">		 {{item.serial}}
+			  	</span>
+			  	
+			  	<md-input-container ng-show="edit[item.codigo]" flex="30">
+			  		<label>Código</label>
+			  		<input type="text" ng-model="item.serial" >
+			  	</md-input-container>			  
+			  </td>
+			  
+			  <td md-cell>
+			  	<span ng-dblclick="showEdition($event,item.codigo)" ng-hide="edit[item.codigo]">{{item.materia}}</span>
+			  	
+			  	<md-input-container ng-show="edit[item.codigo]">
+			  		<label>Materia</label>
+			  		<input type="text" ng-model="item.materia">
+			  	</md-input-container>
+			  </td>
+			  <td md-cell>
+			  	<span ng-dblclick="showEdition($event,item.codigo)" ng-hide="edit[item.codigo]">{{item.uc}}</span>
+			  	
+			  	<md-input-container ng-show="edit[item.codigo]">
+			  		<label>UC</label>
+			  		<input type="number"  max="4" min="1" ng-model="item.uc">
+			  	</md-input-container>
+			  </td>
+			  
+			  <td md-cell>
+			  	<span ng-dblclick="showEdition($event,item.codigo)" ng-hide="edit[item.codigo]">{{item.seccion}}</span>
+			  	
+			  	<span ng-dblclick="showEdition($event,item.codigo)" ng-show="edit[item.codigo]">{{item.seccion}}</span>
+			  	
+			  </td>
+			<td md-cell>
+				<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/delete.svg" title="Eliminar" ng-click="deleteMateria(item.codigo,item.seccion,item.semestre)"></md-icon>
+				
+				<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/save.svg" title="Editar" ng-click="updateMateria(item.codigo,item.serial,item.materia,item.uc);"></md-icon>
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</md-table-container>
+	</div>
+	
+</div>

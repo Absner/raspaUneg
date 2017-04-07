@@ -1,0 +1,41 @@
+
+<h2>Cargar Alumnos</h2>
+
+
+<div ng-controller="subirFile" layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45">              
+<form layout="column" ng-init="showPeriodo();"> 
+        
+        <md-input-container>
+			<label>Semestre</label>   
+			<md-select ng-change="cargarMaterias();" ng-model="semestre">
+			<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+			</md-select>
+        </md-input-container>
+
+        <md-input-container>
+			<label>Materia</label>   
+			<md-select ng-model="materia" ng-change="cargarSeccions();">
+			<md-option ng-repeat="Materia in Materias" value="{{Materia.codigoM}}">{{Materia.nombreM}}</md-option>
+			</md-select>
+        </md-input-container>
+        
+        <md-input-container>
+			<label>Sección</label>   
+			<md-select ng-model="seccion">
+			<md-option ng-repeat="seccion in Secciones"  value="{{seccion.codigoS}}">{{seccion.codigoS}}</md-option>
+			</md-select>
+        </md-input-container>
+
+        <md-input-container>
+			<label></label>
+			<input type="file"  name="file" uploader-model="file" >
+        </md-input-container>
+
+        <md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type class="md-raised md-primary" ng-click="cargaFile();">Cargar</md-button>
+        <md-button class="md-raised">Limpiar</md-button>
+        </md-input-container>
+</form>
+
+</div>

@@ -1,0 +1,59 @@
+
+<h2>Cronograma Examen.</h2>
+<div layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45" ng-controller="Agenda">
+
+<section layout="column" layout-align="center" ng-controller="subirFile" ng-init="showPeriodo();tipoEvaluacion();">
+
+	<md-input-container>
+			<label>Tipo Examen</label>   
+			<md-select ng-model="tipoEval">
+			<md-option ng-repeat="item in listaEvaluacion" value="{{item.codigo}}">{{item.descripcion}}</md-option>
+			</md-select>
+    </md-input-container>
+	
+	<md-input-container>
+			<label>Semestre</label>   
+			<md-select ng-change="cargarMaterias();" ng-model="semestre">
+			<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+			</md-select>
+    </md-input-container>
+	
+	<md-input-container>
+		<label>Materia</label>
+		<md-select ng-model="materia" ng-change="cargarSeccions();">
+			<md-option ng-repeat="Materia in Materias" value="{{Materia.codigoM}}">{{Materia.nombreM}}</md-option>
+		</md-select>
+	</md-input-container>
+	
+	<md-input-container>
+		<label>Sección</label>
+		<md-select ng-model="seccion">
+			<md-option ng-repeat="seccion in Secciones" value="{{seccion.codigoS}}">{{seccion.codigoS}}</md-option>
+		</md-select>
+	</md-input-container>
+	
+	<md-input-container>
+		<input type="number" ng-model="porcentaje" placeholder="Porcentaje de la evaluación." max="25" min="1">
+	</md-input-container>
+	
+	<md-input-container>
+          <label>Descripción</label>
+          <textarea maxlength="100" rows="5" md-select-on-focus ng-model="descripcion"></textarea>
+    </md-input-container>
+
+  	
+  		<md-datepicker id="fecha" ng-model="myDate" md-placeholder="Seleccione" flex-gt-sm="65"
+  flex-gt-xs="45" >
+ 
+  	</md-datepicker>
+  	
+  	
+  
+  <md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type class="md-raised md-primary" ng-click="addExamen();">Cargar</md-button>
+        <md-button class="md-raised">Limpiar</md-button>
+  </md-input-container>
+</section>
+
+</div>

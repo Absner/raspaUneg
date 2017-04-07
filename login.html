@@ -1,0 +1,39 @@
+<md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+        </md-button>
+        <h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+        </md-button>
+      </div>
+    </md-toolbar>
+    <!-- div para generar las vistas -->    
+    <div layout="row" layout-align="center" >
+        
+           <div class="form" layout="column" flex-gt-sm="25" flex-gt-xs="40">
+                
+                
+                <div layout="row" layout-align="center center">
+                    <img src="img/1462508626_user_male2.png">
+                </div>
+
+                <md-input-container>
+                    <input type="text" placeholder="Usuario" ng-model="usuario">
+                </md-input-container>
+
+                <md-input-container>
+
+                    <input type="text" placeholder="Password" ng-model="pass">
+                </md-input-container>
+
+                <md-button class="md-raised md-primary" ng-click="vm.login();">Acceder</md-button>
+                <md-button class="md-raised">Limpiar</md-button>
+            
+            </div>
+        <form name="Login">
+            
+        </form>
+    </div>

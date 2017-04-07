@@ -1,0 +1,58 @@
+<div ng-controller=" link as vm">
+<h2>
+	<md-icon class="md-default-theme" class="material-icons" md-svg-src="img/back.svg" title="Regresar" ng-click="vm.ruta('#/Configuracion')"></md-icon>
+Asignar materia.
+</h2>
+</div>
+
+
+<div   ng-controller="materia" ng-init="showMateria();">
+<form ng-controller="subirFile" layout="column" flex-gt-sm="70" flex-gt-xs="45" layout-align="center" class="marginAuto" ng-submit="asigMateria();" ng-init="showPeriodo();">
+	<md-input-container>
+			<label>Semestre</label>   
+			<md-select ng-model="semestre">
+			<md-option ng-repeat="item in periodos"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+			</md-select>
+    </md-input-container>
+	
+	<md-input-container>
+			<label>Materia</label>   
+			<md-select ng-model="materia">
+			<md-option ng-repeat="asignatura in asignaturas" value="{{asignatura.codigo}}">{{asignatura.nombre}}</md-option>
+			</md-select>
+    </md-input-container>
+    
+    
+    <md-input-container>
+			<label>Sección</label>   
+			<md-select ng-model="seccion">
+			<md-option ng-repeat="seccion in secciones" value="{{seccion.codigo}}">{{seccion.codigo}}</md-option>
+			</md-select>
+    </md-input-container>
+    
+    <!--<md-input-container>
+			<label>Período</label>   
+			<md-select ng-model="periodo">
+			<md-option value="2016-I">2016-I</md-option>
+			<md-option value="2016-II">2016-II</md-option>
+			<md-option value="2017-I">2017-I</md-option>
+			<md-option value="2017-II">2017-II</md-option>
+			<md-option value="2018-I">2018-I</md-option>
+			<md-option value="2018-II">2018-II</md-option>
+			<md-option value="2019-I">2019-I</md-option>
+			<md-option value="2019-II">2019-II</md-option>
+			<md-option value="2020-I">2020-I</md-option>
+			<md-option value="2020-II">2020-II</md-option>
+			</md-select>
+    </md-input-container>-->
+    
+    <md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type="submit" class="md-raised md-primary" >Cargar</md-button>
+        <md-button class="md-raised">Limpiar</md-button>
+    </md-input-container>
+</form>
+	
+</div>
+
+

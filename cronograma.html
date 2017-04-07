@@ -1,0 +1,30 @@
+
+<h2>Cronograma.</h2>
+<div layout="column" layout-align="center" class="marginAuto" flex-gt-sm="70" flex-gt-xs="45" ng-controller="Agenda" ng-init="showActividad();" >
+	<md-input-container>
+		<label>Actividad</label>   
+        <md-select ng-model="actividad">
+			<md-option  ng-repeat="item in listaActividad"  value="{{item.codigo}}">{{item.descripcion}}</md-option>
+        </md-select>
+	</md-input-container>
+	
+	<md-input-container>
+          <label>Descripción</label>
+          <textarea ng-model="descripcion" maxlength="100" rows="5" md-select-on-focus></textarea>
+    </md-input-container>
+
+  	
+  		<md-datepicker id="fecha" ng-model="myDate" md-placeholder="Seleccione" flex-gt-sm="65"
+  flex-gt-xs="45" >
+ 
+  	</md-datepicker>
+  	
+  	
+  
+  <md-input-container layout="row" layout-align="end center">
+        <!--<input type="submit" value="Cargar" class="md-raised md-primary">-->
+        <md-button type class="md-raised md-primary" ng-click="addEvento();">Cargar</md-button>
+        <md-button class="md-raised">Limpiar</md-button>
+  </md-input-container>
+
+</div>

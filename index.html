@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Raspa Uneg 2.1</title>
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+	<link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css">
+	<link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="YourApp">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
+        </md-button>
+        <h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+        </md-button>
+      </div>
+    </md-toolbar>
+    <!-- div para generar las vistas -->
+    <div layout="column" layout-align="center center" class="logo">
+    	<img src="img/Logo.png">
+    </div>
+    <div layout="row" layout-align="center" ng-controller="LoginController as vm">
+        
+           
+               <form name="userForm"  class="form" layout="column" flex-gt-sm="25" flex-gt-xs="40">
+                <div class="form" layout="column">
+                
+                <div layout="row" layout-align="center center">
+                    <img src="img/1462508626_user_male2.png">
+                </div>
+
+                <md-input-container>
+                   <label>Usuario</label>
+                    <input name="id" type="text"  ng-model="user.id" required>
+                    <div ng-messages="userForm.id.$error">
+                          <div ng-message="required">Esto es requerido!</div>
+
+                    </div>
+                </md-input-container>
+
+                <md-input-container>
+					<label>Password</label>
+                    <input name="passw" type="password"  ng-model="user.passw" required>
+                    <div ng-messages="userForm.passw.$error">
+                          <div ng-message="required">Esto es requerido!</div>
+
+                    </div>
+                </md-input-container>
+
+                <md-button type="submit" class="md-raised md-primary" ng-disabled="!userForm.$valid" ng-click="vm.validar();">Acceder</md-button>
+                <md-button  class="md-raised" ng-click="vm.limpiar();">Limpiar</md-button>
+                <!--<md-button class="md-raised">Limpiar</md-button>-->
+                </div>
+			   </form>
+            
+            
+            
+
+    </div>
+    
+
+
+</body>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+<script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="js/app.js"></script>
+</html>
